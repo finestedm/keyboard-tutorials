@@ -21,7 +21,7 @@ const backToHomeBtn = document.getElementById('back-to-home');
 // Initialize
 async function init() {
     try {
-        const response = await fetch('/data/keyboards.json');
+        const response = await fetch('data/keyboards.json');
         state.keyboards = await response.json();
         renderLandingPage();
         handleRouting();
@@ -36,7 +36,7 @@ function renderLandingPage() {
         const card = document.createElement('div');
         card.className = 'kb-card';
         card.innerHTML = `
-            <img src="/${kb.thumbnail}" alt="${kb.name}">
+            <img src="${kb.thumbnail}" alt="${kb.name}">
             <div class="kb-card-content">
                 <h3>${kb.name}</h3>
                 <p>${kb.description}</p>
@@ -59,7 +59,7 @@ async function loadTutorial(kbId) {
     state.currentKeyboard = keyboard;
 
     try {
-        const response = await fetch(`/data/tutorials/${kbId}.json`);
+        const response = await fetch(`data/tutorials/${kbId}.json`);
         state.currentTutorial = await response.json();
         state.currentStepIndex = 0;
         
@@ -101,7 +101,7 @@ function renderCurrentStep() {
     if (!step) return;
 
     // Use / for public assets
-    stepMedia.src = `/${step.media}`;
+    stepMedia.src = `${step.media}`;
     stepTitle.textContent = step.title;
     stepContent.textContent = step.content;
     stepCounter.textContent = `${state.currentStepIndex + 1} / ${state.currentTutorial.length}`;

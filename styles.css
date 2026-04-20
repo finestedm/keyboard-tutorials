@@ -17,24 +17,39 @@
     
     --md-sys-color-outline: #79747E;
     
-    /* Dark Mode Overrides */
-    --bg-color: #1C1B1F;
-    --on-bg-color: #E6E1E5;
-    --surface-container: #2B2930;
-    --surface-container-high: #333138;
+    /* Dark Mode variables for manual toggle */
+    --md-sys-color-primary-dark: #D0BCFF;
+    --md-sys-color-on-primary-dark: #381E72;
+    --md-sys-color-primary-container-dark: #4F378B;
+    --md-sys-color-on-primary-container-dark: #EADDFF;
+    --md-sys-color-surface-dark: #1C1B1F;
+    --md-sys-color-on-surface-dark: #E6E1E5;
+    --md-sys-color-surface-variant-dark: #49454F;
+    --md-sys-color-on-surface-variant-dark: #CAC4D0;
+}
+
+/* Apply variables based on manual class or system preference */
+body.dark-mode {
+    --md-sys-color-primary: var(--md-sys-color-primary-dark);
+    --md-sys-color-on-primary: var(--md-sys-color-on-primary-dark);
+    --md-sys-color-primary-container: var(--md-sys-color-primary-container-dark);
+    --md-sys-color-on-primary-container: var(--md-sys-color-on-primary-container-dark);
+    --md-sys-color-surface: var(--md-sys-color-surface-dark);
+    --md-sys-color-on-surface: var(--md-sys-color-on-surface-dark);
+    --md-sys-color-surface-variant: var(--md-sys-color-surface-variant-dark);
+    --md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant-dark);
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --md-sys-color-primary: #D0BCFF;
-        --md-sys-color-on-primary: #381E72;
-        --md-sys-color-primary-container: #4F378B;
-        --md-sys-color-on-primary-container: #EADDFF;
-        
-        --md-sys-color-surface: #1C1B1F;
-        --md-sys-color-on-surface: #E6E1E5;
-        --md-sys-color-surface-variant: #49454F;
-        --md-sys-color-on-surface-variant: #CAC4D0;
+    body:not(.light-mode) {
+        --md-sys-color-primary: var(--md-sys-color-primary-dark);
+        --md-sys-color-on-primary: var(--md-sys-color-on-primary-dark);
+        --md-sys-color-primary-container: var(--md-sys-color-primary-container-dark);
+        --md-sys-color-on-primary-container: var(--md-sys-color-on-primary-container-dark);
+        --md-sys-color-surface: var(--md-sys-color-surface-dark);
+        --md-sys-color-on-surface: var(--md-sys-color-on-surface-dark);
+        --md-sys-color-surface-variant: var(--md-sys-color-surface-variant-dark);
+        --md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant-dark);
     }
 }
 
@@ -54,7 +69,7 @@ body {
 }
 
 #app {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 1.5rem;
 }
@@ -345,5 +360,41 @@ p { font-size: 1rem; color: var(--md-sys-color-on-surface-variant); }
     .footer-content {
         flex-direction: column;
         gap: 1.5rem;
+    }
+}
+/* Theme Toggle FAB */
+.fab {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    z-index: 1000;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.fab svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 600px) {
+    .fab {
+        right: 1.5rem;
+        bottom: 1.5rem;
     }
 }

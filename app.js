@@ -18,8 +18,51 @@ const prevBtn = document.getElementById('prev-step');
 const nextBtn = document.getElementById('next-step');
 const backToHomeBtn = document.getElementById('back-to-home');
 
+// Theme Management
+function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = themeToggle.querySelector('.sun-icon');
+    const moonIcon = themeToggle.querySelector('.moon-icon');
+    
+    // Check saved preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+        document.body.classList.add('dark-mode');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    } else if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    }
+
+    themeToggle.onclick = () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (isDark || (!localStorage.getItem('theme') && systemDark)) {
+            // Switch to Light
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        } else {
+            // Switch to Dark
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            localStorage.setItem('theme', 'dark');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+    };
+}
+
 // Initialize
 async function init() {
+    initTheme();
     try {
         const response = await fetch('data/keyboards.json');
         state.keyboards = await response.json();

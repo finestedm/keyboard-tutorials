@@ -36,7 +36,7 @@
   },
   {
     "title": "Flashing firmware - drag and drop",
-    "content": "Once the keyboard is in bootloader mode you can flash the firmware. You can do this by dragging and dropping the .uf2 file onto the NICENANO drive. Make sure you take the correct file for the half you are flashing. It will not damage keyboard but wrong keys will be registered. It will take couple of seconds. After file is transfered you can restart keyboard. Make sure to reconnect the usb-c cable without battery being connected (off position).",
+    "content": "Once the keyboard is in bootloader mode you can flash the firmware! You can do this by dragging and dropping the .uf2 file onto the NICENANO drive. Make sure you take the correct file for the half you are flashing. It will not damage keyboard but wrong keys will be registered. It will take couple of seconds. After file is transfered you can restart keyboard. Make sure to reconnect the usb-c cable without battery being connected (off position).",
     "media": "assets/temper9.png"
   }
 ]

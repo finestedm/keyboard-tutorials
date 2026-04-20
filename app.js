@@ -79,7 +79,10 @@ function renderLandingPage() {
         const card = document.createElement('div');
         card.className = 'kb-card';
         card.innerHTML = `
-            <img src="${kb.thumbnail}" alt="${kb.name}">
+            <div class="blur-container">
+                <img src="${kb.thumbnail}" class="blur-bg" alt="">
+                <img src="${kb.thumbnail}" class="main-img" alt="${kb.name}">
+            </div>
             <div class="kb-card-content">
                 <h3>${kb.name}</h3>
                 <p>${kb.description}</p>
@@ -143,8 +146,15 @@ function renderCurrentStep() {
     const step = state.currentTutorial[state.currentStepIndex];
     if (!step) return;
 
-    // Use / for public assets
-    stepMedia.src = `${step.media}`;
+    // Media container structure
+    const mediaContainer = document.querySelector('.media-container');
+    mediaContainer.innerHTML = `
+        <div class="blur-container">
+            <img src="${step.media}" class="blur-bg" alt="">
+            <img src="${step.media}" class="main-img" id="step-media" alt="${step.title}">
+        </div>
+    `;
+    
     stepTitle.textContent = step.title;
     stepContent.textContent = step.content;
     stepCounter.textContent = `${state.currentStepIndex + 1} / ${state.currentTutorial.length}`;

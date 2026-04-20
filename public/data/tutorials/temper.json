@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Firmware Preparation - fork repo",
+    "content": "To create your own layout, fork the repo located under this link: https://github.com/finestedm/Temper_zmk. To do that you must have your github account. After registering simply press fork button in the top right corner.",
+    "media": "assets/temper3.png"
+  },
+  {
+    "title": "Creating your own map",
+    "content": "Open website https://nickcoutsos.github.io/keymap-editor/. In there you should be able to login using your github account. You should we welcomed with screen similar to the one on the screenshot. After that you can create your own layout. The process is a separate topic which you can learn by reading ZMK documentation and experimenting. Once you are finished press 'Save'.",
+    "media": "assets/temper4.png"
+  },
+  {
+    "title": "Building firmware",
+    "content": "After saving your layout you can download the firmware. You can do that by going to your forked repository on github and pressing 'Actions' button in the top menu. This buiding action is set to initiate automatically every time you push changes to the repository. It will take ~2-3 minutes to complete.",
+    "media": "assets/temper5.png"
+  },
+  {
+    "title": "Download firmware",
+    "content": "Once this is finished you can download the firmware. Do this by clicking the latest (top) complete workflow with a subtitle of 'build firmware'. Inside go down and find 'Artifacts' section. There you should see a download button. Click it and save the file.",
+    "media": "assets/temper6.png"
+  },
+  {
+    "title": "Firmware file content",
+    "content": "The firmware file is a .uf2 file. You can find 3 files - 1 for each half of the keyboard and one reset file. I recommend flashing reset file first, rebooting into bootloader and flashing the left or right file then. This really fixes some issues with connectivity!.",
+    "media": "assets/temper7.png"
+  },
+  {
+    "title": "Flashing firmware - connect USB-C cable",
+    "content": "Connect cable to the left half of the keyboard.",
+    "media": "assets/temper2.jpg"
+  },
+  {
+    "title": "Flashing firmware - bootloader mode",
+    "content": "To flash the firmware you need to put your keyboard into bootloader mode. You can do this by taking a metal object and connecting two pins called gnd and rst. You need to quickly double tap it. Red LED should flash underneath the board. To make sure it works your PC should display NICENANO device connected. If it does not then try again and make sure the object you use to short the pins is conducting electricity.",
+    "media": "assets/temper8.jpg"
+  },
+  {
+    "title": "Flashing firmware - drag and drop",
+    "content": "Once the keyboard is in bootloader mode you can flash the firmware. You can do this by dragging and dropping the .uf2 file onto the NICENANO drive. Make sure you take the correct file for the half you are flashing. It will not damage keyboard but wrong keys will be registered. It will take couple of seconds. After file is transfered you can restart keyboard. Make sure to reconnect the usb-c cable without battery being connected (off position).",
+    "media": "assets/temper9.png"
+  }
+]

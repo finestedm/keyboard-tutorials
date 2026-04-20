@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Tutorials | Material You</title>
+    <meta name="description" content="Step-by-step guides for building your mechanical keyboards in Material 3 style.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Landing Page View -->
+        <section id="landing-view" class="view">
+            <header class="hero">
+                <h1>Keyboard Tutorials</h1>
+                <p>Master your mechanical build with ease.</p>
+            </header>
+            <div id="keyboard-grid" class="gridContainer">
+                <!-- Cards will be injected here -->
+            </div>
+
+            <!-- Shop Section -->
+            <section class="shop-promo glass-card">
+                <div class="shop-promo-content">
+                    <img src="/assets/klawiaturex-logo.png" alt="Klawiaturex Logo" class="shop-logo-large">
+                    <div class="shop-text">
+                        <h2>Klawiaturex Shop</h2>
+                        <p>Love these builds? Get your own custom mechanical keyboard or DIY parts at my Etsy shop.</p>
+                        <a href="https://www.etsy.com/shop/Klawiaturex" target="_blank" class="btn btn-primary shop-cta">Visit Klawiaturex on Etsy</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Tutorial View -->
+        <section id="tutorial-view" class="view hidden">
+            <nav class="tutorial-nav">
+                <button id="back-to-home" class="btn btn-text">&larr; Back to Home</button>
+            </nav>
+            
+            <div class="tutorial-container">
+                <aside class="sidebar">
+                    <h2 style="margin-bottom: 1.5rem; padding-left: 1rem;">Steps</h2>
+                    <ul id="steps-list">
+                        <!-- Steps injected here -->
+                    </ul>
+                </aside>
+                
+                <main class="content-area">
+                    <div class="glass-card">
+                        <div class="media-container">
+                            <img id="step-media" src="" alt="Step media">
+                        </div>
+                        <div class="step-info">
+                            <h3 id="step-title" style="font-size: 1.75rem; margin-bottom: 0.75rem;">Step Title</h3>
+                            <p id="step-content">Step description here.</p>
+                        </div>
+                        <div class="step-controls">
+                            <button id="prev-step" class="btn btn-secondary">Prev</button>
+                            <span id="step-counter">1 / 5</span>
+                            <button id="next-step" class="btn btn-primary">Next</button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+        
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="/assets/klawiaturex-logo.png" alt="Klawiaturex" class="footer-logo">
+                    <span>klawiaturex</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.etsy.com/shop/Klawiaturex" target="_blank">Shop on Etsy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

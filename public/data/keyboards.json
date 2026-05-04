@@ -4,5 +4,11 @@
     "name": "Temper",
     "description": "36 key keyboard with split design",
     "thumbnail": "assets/temper1.jpg"
+  },
+  {
+    "id": "silakka54",
+    "name": "Silakka54",
+    "description": "54 key wired keyboard with split design",
+    "thumbnail": "assets/silakka54-1.jpg"
   }
 ]
